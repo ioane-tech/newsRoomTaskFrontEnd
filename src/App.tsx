@@ -1,13 +1,14 @@
-import React from 'react';
-
+//styles
+import 'antd/dist/antd';
 import './App.css';
+
+// react components
+import AppRoutes from './components/Routes';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Supernova technical task</h1>
-      </header>
+      <AppRoutes />
     </div>
   );
 }
