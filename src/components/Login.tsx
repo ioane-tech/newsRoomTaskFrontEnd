@@ -1,19 +1,18 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useLogin } from '../hooks/useAuth';
+
 //antd components
 import { Form, Input, Button } from 'antd';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 
 function Login() {
-  const [loading, setLoading] = useState(false);
+  const { login, loading } = useLogin();
+
+  const navigate = useNavigate();
 
   const onFinish = async (values:any) => {
-    setLoading(true); 
-
-
-    setTimeout(() => {
-      console.log('Form Values:', values);
-      setLoading(false); 
-    }, 2000); 
+    const { name, password } = values;
+    login(name, password, navigate);
   };
 
   return (

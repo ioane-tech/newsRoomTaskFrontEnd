@@ -12,6 +12,7 @@ function Sign_in_counts_renderer({
     header,
     navigationButtonText,
     navigationLink,
+    loading,
   }: SignInCountsRendererProps) {
     
     const navigation = useNavigate()
@@ -36,14 +37,17 @@ function Sign_in_counts_renderer({
     const columns = [
         {
             title: 'Name',
-            dataIndex: 'name',
+            dataIndex: 'username',
             key: 'name',
         },
         {
             title: 'Date',
             dataIndex: 'date',
             key: 'date',
-            render: (text:string) => <span>{new Date(text).toLocaleDateString()}</span>,
+            render: (text: string) => {
+                const DateTime = new Date(text).toLocaleString(); 
+                return <span>{DateTime}</span>;
+            },
         },
     ];
 
@@ -58,8 +62,18 @@ function Sign_in_counts_renderer({
         pageSizeOptions: ['2', '4', '8', '10'],
     };
 
+    console.log(data)
     return (
-        <div className='dashboard_main_div'>
+        <div>
+
+            {/* if data loading */}
+            {
+                loading &&
+                <div className='loading_container'>
+                    <p>Loading...</p>
+                </div>
+            }
+
             <Button
                 onClick={()=> navigation(`${navigationLink}`)}
                 className='global_counts_button' 
@@ -68,18 +82,20 @@ function Sign_in_counts_renderer({
                 {navigationButtonText}
             </Button>
 
+            {/* sing-in counts table*/}
             <div className="dashboard_container">
               <h1>Dashboard</h1>
               <h3>{header}</h3>
-
-              {/* sing-in counts table*/}
-              <Table
-                columns={columns}
-                dataSource={data.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
-                pagination={paginationProps}
-                rowKey="id"
-                className="dashboard_table"
-              />
+              {
+                data &&
+                <Table
+                  columns={columns}
+                  dataSource={data.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
+                  pagination={paginationProps}
+                  rowKey="id"
+                  className="dashboard_table"
+                />
+              }
             </div>
         </div>
     );

@@ -1,14 +1,15 @@
 // sign in counts data type
-export interface DataType {
-    id: number;
+export interface CountsDataType {
     name: string;
     date: string;
 }
 
 
 export interface SignInCountsRendererProps {
-    data: DataType[];
+    data: CountsDataType[];
     header: string;
     navigationButtonText: string;
     navigationLink: string;
+    loading:boolean;
 }
+

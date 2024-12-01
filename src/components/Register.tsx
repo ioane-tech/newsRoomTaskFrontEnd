@@ -1,19 +1,20 @@
+import { Link, useNavigate } from 'react-router-dom';
+
 //antd components
 import { Form, Input, Button } from 'antd';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+//hooks
+import {useRegister} from '../hooks/useAuth';
 
 function Register() {
-  const [loading, setLoading] = useState(false);
+
+  const { register, loading } = useRegister();
+
+  const navigate = useNavigate();
 
   const onFinish = (values:any) => {
-    console.log('Form Values:', values);
-    setLoading(true)
-
-    setTimeout(() => {
-      console.log('Form Values:', values);
-      setLoading(false); 
-    }, 2000); 
+    const { name, password } = values;
+    register(name, password, navigate);
   };
 
   return (
