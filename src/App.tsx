@@ -9,26 +9,17 @@ import './App.css';
 // react components
 import AppRoutes from './components/Routes';
 import { isTokenExpired } from './lib/smallComponents/isTokenExpired';
+import useSocket from './hooks/useSocket';
 
-import io from "socket.io-client";
-
-const socket = io("http://127.0.0.1:5000");
 
 function App() {
   const navigate = useNavigate()
   
 
   //notification if global count reaches 5
-  useEffect(() => {
-    socket.on('notification', (data) => {
-      if (data?.message) {
-        toast.info(data.message);
-      }
-    });
-    return () => {
-      socket.off('notification');
-    };
-  }, []);
+  useSocket("notification", () => {
+    toast.info('Global count has reached 5!');
+  });
 
 
   // check unauthorised access or token expiration

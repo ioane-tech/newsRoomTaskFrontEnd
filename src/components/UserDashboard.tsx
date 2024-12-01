@@ -7,13 +7,18 @@ import Sign_in_counts_renderer from '../Componentsreusable/Sign_in_counts_render
 //types
 import useFetchUserCounts from '../hooks/useFetchUserCounts';
 import LogoutButton from '../lib/smallComponents/LogoutButton';
-
+import useSocket from '../hooks/useSocket';
+import { toast } from 'react-toastify';
 
 
 function UserDashboard() {
-    const {userlCounts, loading} = useFetchUserCounts()
+    const {userlCounts, loading, fetchUserCounts} = useFetchUserCounts()
 
-
+    // update counts in real time
+    useSocket("update_counts", () => {
+        toast.success('Count changed!')
+        fetchUserCounts(); 
+    });
     return (
         <div className='dashboard_main_div'>
             <LogoutButton/>

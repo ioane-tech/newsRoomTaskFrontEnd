@@ -8,7 +8,7 @@ function useFetchGlobalCounts() {
     const [loading, setLoading] = useState<boolean>(false)
     const [globalCounts, setGlobalCounts] = useState<any>()
 
-    const fetchCounts = async () => {
+    const fetchGlobalCounts = async () => {
         setLoading(true);
         const token = localStorage.getItem("token"); 
         if (!token) {
@@ -38,10 +38,10 @@ function useFetchGlobalCounts() {
 
 
     useEffect(()=>{
-        fetchCounts()
+        fetchGlobalCounts()
     },[])
 
-  return {globalCounts, loading, fetchCounts}
+  return {globalCounts, loading, fetchGlobalCounts}
 }
 
 export default useFetchGlobalCounts
