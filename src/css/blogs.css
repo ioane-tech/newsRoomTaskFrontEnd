@@ -1,0 +1,88 @@
+body{
+    background-color: rgb(240, 240, 240);
+}
+.blogs-container {
+    padding: 20px;
+}
+  
+.create-blog-btn {
+    margin-bottom: 20px;
+    width: 200px;
+    border: 2px solid rgb(37, 161, 255);
+    transition: 0.3;
+}
+  
+.modal-container {
+    width: 50%;
+}
+
+.submit-btn {
+    margin-top: 10px;
+}
+
+.blog-card {
+    width: fit-content;
+    height:auto;
+    border: 2px solid gray;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-list-item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.blog-image {
+    width: 250px;
+    margin-top: 10px;
+}
+
+.load-comments-btn {
+    margin-top: 10px;
+}
+
+.comments-list {
+    margin-top: 10px;
+}
+
+.comment-item {
+    padding: 10px 0;
+}
+
+.add-comment-btn {
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.blogs-list {
+    margin-top: 30px;
+}
+
+
+.blog-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden; 
+    padding-bottom: 20px;
+}
+
+.blog-item {
+    flex-grow: 1;
+    min-height: 25%;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.blog-list {
+    overflow-y: auto;
+    flex-grow: 1; 
+}

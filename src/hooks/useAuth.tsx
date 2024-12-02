@@ -43,7 +43,7 @@ export function useLogin() {
             });
             if(response.status === 200){
                 toast.success(response.data.message)
-                navigate('/userDashboard')
+                navigate('/blogs')
                 localStorage.setItem('token', response.data.token)
             }
         } catch (error: any) {

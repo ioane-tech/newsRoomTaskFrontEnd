@@ -12,7 +12,7 @@ function Home() {
     return (
       <div className="home_container">
         {/* header */}
-        <h1>Welcome to the Supernova technical task</h1>
+        <h1>Welcome to the NewsRoom technical task</h1>
 
         {/* authantication buttons */}
         <div className="button_container">

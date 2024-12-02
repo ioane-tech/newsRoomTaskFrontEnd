@@ -32,14 +32,6 @@ button {
 }
 
 
-.global_counts_button{
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: fit-content;
-  text-align: center;
-  border: 2px solid rgb(76, 76, 76);
-}
 
 .loading_container{
   width: 100%;
